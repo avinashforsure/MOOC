@@ -313,11 +313,11 @@
       <div style="font-size:13px; color:var(--muted); font-weight:600; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:14px;">Challenge Mode</div>
       <div class="asgn-card" id="random-card" onclick="startRandom()" style="text-align:left; display:flex; align-items:center; gap:16px; max-width:100%;">
         <div>
-          <span style="font-family:'Space Mono',monospace; font-size:28px; font-weight:700; color:var(--gold);">25Q</span>
+          <span style="font-family:'Space Mono',monospace; font-size:28px; font-weight:700; color:var(--gold);">50Q</span>
         </div>
         <div>
           <div style="font-size:15px; font-weight:700; color:var(--text); margin-bottom:4px;">Random Mixed Quiz</div>
-          <div style="font-size:12px; color:var(--muted);">25 random questions · minimum 2 from each assignment</div>
+          <div style="font-size:12px; color:var(--muted);">50 random questions · minimum 2 from each assignment</div>
         </div>
       </div>
     </div>
@@ -634,11 +634,11 @@ function startRandom() {
     remaining.push(...qs.filter(q => !used.includes(q.idx)));
   }
   remaining.sort(() => Math.random() - 0.5);
-  pool.push(...remaining.slice(0, 25 - pool.length));
+  pool.push(...remaining.slice(0, 50 - pool.length));
   pool.sort(() => Math.random() - 0.5);
 
   currentQuestions = pool;
-  launchQuiz('Random Mixed Quiz', '25 questions from all 12 assignments', pool);
+  launchQuiz('Random Mixed Quiz', '50 questions from all 12 assignments', pool);
 }
 
 function launchQuiz(title, meta, questions) {
