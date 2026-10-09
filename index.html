@@ -3,28 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ESD Quiz - Education for Sustainable Development</title>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<title>Psychology of Learning Quiz - NPTEL IIT Kharagpur</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0a0e1a;
     --surface: #111827;
-    --card: #1a2235;
-    --border: #2a3650;
+    --card: #151f33;
+    --border: #23334d;
     --accent: #00d4aa;
-    --accent2: #4f8ef7;
+    --accent2: #38bdf8;
     --wrong: #ff4f6a;
     --correct: #00d4aa;
     --text: #e8edf8;
-    --muted: #6b7fa3;
+    --muted: #7e91b3;
     --gold: #fbbf24;
+    --purple: #a78bfa;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Sora', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
   .hero {
-    background: linear-gradient(135deg, #0a0e1a 0%, #0f1e35 50%, #0a1628 100%);
-    padding: 60px 20px 50px;
+    background: linear-gradient(135deg, #0a0e1a 0%, #101c31 50%, #0a1628 100%);
+    padding: 50px 20px 40px;
     text-align: center;
     border-bottom: 1px solid var(--border);
     position: relative;
@@ -35,7 +36,7 @@
     position: absolute;
     top: -60px; left: 50%; transform: translateX(-50%);
     width: 600px; height: 300px;
-    background: radial-gradient(ellipse, rgba(0,212,170,0.08) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(0,212,170,0.09) 0%, transparent 70%);
     pointer-events: none;
   }
   .hero-badge {
@@ -44,86 +45,87 @@
     font-size: 11px;
     letter-spacing: 2px;
     color: var(--accent);
-    border: 1px solid var(--accent);
+    border: 1px solid rgba(0,212,170,0.3);
+    background: rgba(0,212,170,0.08);
     padding: 5px 14px;
     border-radius: 20px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     text-transform: uppercase;
   }
   .hero h1 {
-    font-size: clamp(28px, 5vw, 52px);
-    font-weight: 700;
-    line-height: 1.15;
-    margin-bottom: 14px;
-    background: linear-gradient(135deg, #e8edf8 30%, #00d4aa 100%);
+    font-size: clamp(26px, 5vw, 48px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #ffffff 40%, #00d4aa 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  .hero p { font-size: 15px; color: var(--muted); max-width: 500px; margin: 0 auto 30px; line-height: 1.7; }
+  .hero p { font-size: 14px; color: var(--muted); max-width: 580px; margin: 0 auto 20px; line-height: 1.6; }
 
-  .nav-tabs {
-    display: flex; gap: 8px; justify-content: center;
-    padding: 0 20px; flex-wrap: wrap;
-  }
-  .nav-tab {
-    background: var(--card); border: 1px solid var(--border);
-    color: var(--muted); padding: 8px 18px; border-radius: 20px;
-    cursor: pointer; font-size: 13px; font-family: 'Sora', sans-serif;
-    transition: all 0.2s; font-weight: 600;
-  }
-  .nav-tab:hover, .nav-tab.active {
-    background: var(--accent); border-color: var(--accent);
-    color: #0a0e1a;
-  }
-  .nav-tab.random-tab.active { background: var(--gold); border-color: var(--gold); }
-  .nav-tab.random-tab { border-color: var(--gold); color: var(--gold); }
+  .main { max-width: 820px; margin: 0 auto; padding: 26px 16px 60px; }
 
-  .main { max-width: 780px; margin: 0 auto; padding: 30px 16px 60px; }
+  .section-title {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Space Mono', monospace;
+  }
 
   .assignment-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 12px; margin-bottom: 30px;
+    gap: 12px; margin-bottom: 24px; margin-top: 12px;
   }
   .asgn-card {
     background: var(--card); border: 1px solid var(--border);
-    border-radius: 14px; padding: 18px 14px;
+    border-radius: 14px; padding: 16px 12px;
     cursor: pointer; text-align: center; transition: all 0.2s;
     position: relative; overflow: hidden;
   }
-  .asgn-card::before {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(0,212,170,0.06), transparent);
-    opacity: 0; transition: opacity 0.2s;
-  }
-  .asgn-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-  .asgn-card:hover::before { opacity: 1; }
+  .asgn-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
   .asgn-card .num {
-    font-family: 'Space Mono', monospace; font-size: 22px;
-    font-weight: 700; color: var(--accent); display: block; margin-bottom: 6px;
+    font-family: 'Space Mono', monospace; font-size: 20px;
+    font-weight: 700; color: var(--accent); display: block; margin-bottom: 4px;
   }
-  .asgn-card .label { font-size: 11px; color: var(--muted); font-weight: 600; letter-spacing: 0.5px; }
+  .asgn-card .label { font-size: 12px; color: var(--text); font-weight: 600; }
   .asgn-card .q-count { font-size: 10px; color: var(--muted); margin-top: 4px; }
 
-  .quiz-section { display: none; }
-  .quiz-section.active { display: block; }
+  .challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px; margin-top: 12px; margin-bottom: 28px;
+  }
+  .challenge-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 18px;
+    cursor: pointer; transition: all 0.2s;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .challenge-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .challenge-card .c-num {
+    font-family: 'Space Mono', monospace; font-size: 24px;
+    font-weight: 700; color: var(--gold);
+  }
 
   .quiz-header {
     background: var(--card); border: 1px solid var(--border);
-    border-radius: 14px; padding: 20px 24px; margin-bottom: 20px;
-    display: flex; align-items: center; justify-content: space-between; flex-wrap: gap;
+    border-radius: 14px; padding: 18px 22px; margin-bottom: 20px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
     gap: 12px;
   }
   .quiz-title { font-size: 17px; font-weight: 700; color: var(--text); }
   .quiz-meta { font-size: 12px; color: var(--muted); margin-top: 4px; }
   .progress-bar {
-    background: var(--border); border-radius: 4px; height: 6px;
-    margin-top: 12px; overflow: hidden;
+    background: rgba(255,255,255,0.06); border-radius: 4px; height: 6px;
+    margin-top: 10px; overflow: hidden; width: 100%;
   }
   .progress-fill {
-    height: 100%; background: var(--accent); border-radius: 4px;
-    transition: width 0.4s ease; width: 0%;
+    height: 100%; background: linear-gradient(90deg, var(--accent2), var(--accent));
+    border-radius: 4px; transition: width 0.3s ease; width: 0%;
   }
   .score-pill {
     background: rgba(0,212,170,0.1); border: 1px solid rgba(0,212,170,0.3);
@@ -134,164 +136,139 @@
 
   .question-card {
     background: var(--card); border: 1px solid var(--border);
-    border-radius: 16px; padding: 24px; margin-bottom: 16px;
+    border-radius: 16px; padding: 22px; margin-bottom: 16px;
     transition: border-color 0.3s;
   }
   .question-header {
-    display: flex; justify-content: space-between; align-items: flex-start;
-    margin-bottom: 18px;
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 14px;
   }
   .q-num {
     font-family: 'Space Mono', monospace; font-size: 11px;
     color: var(--accent); font-weight: 700; letter-spacing: 1px;
-    margin-bottom: 0;
+    background: rgba(0,212,170,0.08); padding: 3px 8px; border-radius: 6px; border: 1px solid rgba(0,212,170,0.2);
   }
   .mark-important-btn {
     background: transparent; border: 1px solid var(--border);
-    color: var(--muted); padding: 6px 12px; border-radius: 8px;
-    cursor: pointer; font-size: 11px; font-family: 'Sora', sans-serif;
+    color: var(--muted); padding: 5px 10px; border-radius: 8px;
+    cursor: pointer; font-size: 11px; font-family: 'Plus Jakarta Sans', sans-serif;
     transition: all 0.2s; display: flex; align-items: center; gap: 4px;
   }
   .mark-important-btn:hover { border-color: var(--gold); color: var(--gold); }
-  .mark-important-btn.marked { border-color: var(--gold); color: var(--gold); background: rgba(251,191,36,0.1); }
-  .q-text { font-size: 15px; line-height: 1.65; color: var(--text); margin-bottom: 18px; font-weight: 400; }
+  .mark-important-btn.marked { border-color: var(--gold); color: var(--gold); background: rgba(251,191,36,0.12); }
+  .q-text { font-size: 15px; line-height: 1.6; color: var(--text); margin-bottom: 16px; font-weight: 500; }
 
-  .options { display: flex; flex-direction: column; gap: 10px; }
+  .options { display: flex; flex-direction: column; gap: 9px; }
   .option {
     background: var(--surface); border: 1.5px solid var(--border);
-    border-radius: 10px; padding: 13px 16px;
-    cursor: pointer; transition: all 0.2s; display: flex; align-items: flex-start; gap: 12px;
-    font-size: 14px; line-height: 1.5; color: var(--text);
+    border-radius: 10px; padding: 12px 14px;
+    cursor: pointer; transition: all 0.2s; display: flex; align-items: flex-start; gap: 10px;
+    font-size: 13.5px; line-height: 1.45; color: var(--text);
   }
-  .option:hover:not(.disabled) { border-color: var(--accent2); background: rgba(79,142,247,0.06); }
+  .option:hover:not(.disabled) { border-color: var(--accent2); background: rgba(56,189,248,0.08); }
   .option .opt-letter {
     font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700;
     color: var(--muted); background: var(--border); border-radius: 6px;
-    padding: 3px 7px; flex-shrink: 0; margin-top: 1px;
+    padding: 2px 7px; flex-shrink: 0; margin-top: 1px;
   }
-  .option.correct { border-color: var(--correct); background: rgba(0,212,170,0.08); }
+  .option.correct { border-color: var(--correct); background: rgba(0,212,170,0.1); }
   .option.correct .opt-letter { background: var(--correct); color: #0a0e1a; }
-  .option.wrong { border-color: var(--wrong); background: rgba(255,79,106,0.08); }
+  .option.wrong { border-color: var(--wrong); background: rgba(255,79,106,0.1); }
   .option.wrong .opt-letter { background: var(--wrong); color: #fff; }
   .option.disabled { cursor: default; }
-  .option.show-correct { border-color: var(--correct); background: rgba(0,212,170,0.05); }
-  .option.show-correct .opt-letter { border: 1.5px solid var(--correct); color: var(--correct); }
 
   .feedback {
-    margin-top: 14px; padding: 12px 16px; border-radius: 10px;
-    font-size: 13px; line-height: 1.6; display: none;
+    margin-top: 14px; padding: 12px 14px; border-radius: 10px;
+    font-size: 13px; line-height: 1.5; display: none;
   }
   .feedback.show { display: block; }
   .feedback.correct-fb { background: rgba(0,212,170,0.08); border: 1px solid rgba(0,212,170,0.25); color: var(--correct); }
   .feedback.wrong-fb { background: rgba(255,79,106,0.08); border: 1px solid rgba(255,79,106,0.25); color: #ff8fa3; }
-  .feedback .correct-ans { color: var(--correct); font-weight: 600; }
+  .feedback .solution-note { color: #cbd5e1; font-size: 12px; margin-top: 4px; display: block; }
 
   .back-btn {
     background: transparent; border: 1px solid var(--border);
-    color: var(--muted); padding: 8px 16px; border-radius: 8px;
-    cursor: pointer; font-size: 13px; font-family: 'Sora', sans-serif;
-    transition: all 0.2s; margin-bottom: 20px; display: inline-flex; align-items: center; gap: 6px;
+    color: var(--muted); padding: 7px 14px; border-radius: 8px;
+    cursor: pointer; font-size: 12px; font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: all 0.2s; margin-bottom: 16px; display: inline-flex; align-items: center; gap: 6px;
   }
   .back-btn:hover { border-color: var(--muted); color: var(--text); }
 
   .results-card {
     background: var(--card); border: 1px solid var(--border);
-    border-radius: 16px; padding: 36px; text-align: center;
+    border-radius: 16px; padding: 36px 20px; text-align: center;
   }
-  .results-icon { font-size: 48px; margin-bottom: 16px; }
-  .results-score { font-size: 52px; font-weight: 700; font-family: 'Space Mono', monospace; color: var(--accent); }
-  .results-label { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
-  .results-bar { background: var(--border); border-radius: 8px; height: 12px; margin: 20px 0; overflow: hidden; }
+  .results-icon { font-size: 44px; margin-bottom: 12px; }
+  .results-score { font-size: 46px; font-weight: 700; font-family: 'Space Mono', monospace; color: var(--accent); }
+  .results-label { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+  .results-bar { background: var(--border); border-radius: 8px; height: 10px; margin: 16px auto; max-width: 340px; overflow: hidden; }
   .results-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent2), var(--accent)); border-radius: 8px; transition: width 0.8s ease; }
   .retry-btn {
     background: var(--accent); color: #0a0e1a; border: none;
-    padding: 12px 28px; border-radius: 10px; font-size: 14px;
-    font-weight: 700; cursor: pointer; font-family: 'Sora', sans-serif;
-    transition: opacity 0.2s; margin-top: 10px;
+    padding: 11px 24px; border-radius: 10px; font-size: 13px;
+    font-weight: 700; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: opacity 0.2s; margin-top: 8px;
   }
-  .retry-btn:hover { opacity: 0.85; }
+  .retry-btn:hover { opacity: 0.9; }
 
-  .home-section { display: block; }
+  .ak-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px; margin-top: 12px; margin-bottom: 28px;
+  }
+  .ak-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 16px 12px;
+    cursor: pointer; text-align: center; transition: all 0.2s;
+  }
+  .ak-card:hover { border-color: var(--purple); transform: translateY(-2px); }
+  .ak-card .num { font-family: 'Space Mono', monospace; font-size: 20px; font-weight: 700; color: var(--purple); display: block; margin-bottom: 4px; }
+  .ak-card .label { font-size: 12px; color: var(--text); font-weight: 600; }
+  .ak-card .q-count { font-size: 10px; color: var(--muted); margin-top: 4px; }
 
-  .random-info {
-    background: rgba(251,191,36,0.06); border: 1px solid rgba(251,191,36,0.2);
-    border-radius: 12px; padding: 16px 20px; margin-bottom: 20px;
-    font-size: 13px; color: #fcd34d; line-height: 1.6;
+  .ak-question {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 20px; margin-bottom: 14px;
+  }
+  .ak-q-num { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--purple); font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; display: inline-block; background: rgba(167,139,250,0.1); padding: 3px 8px; border-radius: 6px; }
+  .ak-q-text { font-size: 15px; line-height: 1.6; color: var(--text); margin-bottom: 14px; font-weight: 500; }
+  .ak-options { display: flex; flex-direction: column; gap: 8px; }
+  .ak-option {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 14px; border-radius: 10px;
+    border: 1.5px solid var(--border); font-size: 13.5px;
+    color: var(--muted); background: var(--surface); line-height: 1.4;
+  }
+  .ak-option.is-answer {
+    border-color: var(--correct); background: rgba(0,212,170,0.09);
+    color: var(--text); font-weight: 500;
+  }
+  .ak-option .ak-letter {
+    font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700;
+    border-radius: 6px; padding: 2px 7px; flex-shrink: 0; margin-top: 1px;
+    background: var(--border); color: var(--muted);
+  }
+  .ak-option.is-answer .ak-letter { background: var(--correct); color: #0a0e1a; }
+  .ak-option .ak-answer-tag {
+    font-size: 10px; font-weight: 700; color: var(--correct);
+    font-family: 'Space Mono', monospace; margin-left: auto; flex-shrink: 0; padding-top: 2px;
+  }
+  .ak-solution {
+    margin-top: 12px; padding: 10px 12px; border-radius: 8px;
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+    font-size: 12px; color: #94a3b8;
   }
 
   footer {
     text-align: center; padding: 30px 20px;
     border-top: 1px solid var(--border);
     font-family: 'Space Mono', monospace;
-    font-size: 12px; color: var(--muted);
-    letter-spacing: 0.5px;
+    font-size: 11px; color: var(--muted);
   }
   footer span { color: var(--accent); font-weight: 700; }
 
-  @media (max-width: 480px) {
-    .hero { padding: 40px 16px 36px; }
-    .assignment-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-    .asgn-card { padding: 14px 10px; }
-    .asgn-card .num { font-size: 18px; }
-    .question-card { padding: 18px 16px; }
-    .quiz-header { padding: 16px; }
-    .option { padding: 11px 13px; font-size: 13px; }
-    .ak-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-    .ak-card { padding: 14px 10px; }
-    .ak-card .num { font-size: 18px; }
-    .ak-question { padding: 16px 14px; }
-  }
-
-  .ak-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 12px; margin-bottom: 10px;
-  }
-  .ak-card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 14px; padding: 18px 14px;
-    cursor: pointer; text-align: center; transition: all 0.2s; position: relative;
-  }
-  .ak-card:hover { border-color: #a78bfa; transform: translateY(-2px); }
-  .ak-card .num { font-family: 'Space Mono', monospace; font-size: 22px; font-weight: 700; color: #a78bfa; display: block; margin-bottom: 6px; }
-  .ak-card .label { font-size: 11px; color: var(--muted); font-weight: 600; letter-spacing: 0.5px; }
-  .ak-card .q-count { font-size: 10px; color: var(--muted); margin-top: 4px; }
-
-  #answers-view { display: none; }
-  .ak-header {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 14px; padding: 20px 24px; margin-bottom: 20px;
-    display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
-  }
-  .ak-title { font-size: 17px; font-weight: 700; color: #a78bfa; }
-  .ak-subtitle { font-size: 12px; color: var(--muted); margin-top: 4px; }
-
-  .ak-question {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 16px; padding: 22px 22px 18px; margin-bottom: 14px;
-  }
-  .ak-q-num { font-family: 'Space Mono', monospace; font-size: 11px; color: #a78bfa; font-weight: 700; letter-spacing: 1px; margin-bottom: 8px; display: block; }
-  .ak-q-text { font-size: 15px; line-height: 1.65; color: var(--text); margin-bottom: 14px; }
-  .ak-options { display: flex; flex-direction: column; gap: 8px; }
-  .ak-option {
-    display: flex; align-items: flex-start; gap: 11px;
-    padding: 11px 14px; border-radius: 10px;
-    border: 1.5px solid var(--border); font-size: 13.5px;
-    color: var(--muted); background: var(--surface); line-height: 1.5;
-  }
-  .ak-option.is-answer {
-    border-color: var(--correct); background: rgba(0,212,170,0.08);
-    color: var(--text);
-  }
-  .ak-option .ak-letter {
-    font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700;
-    border-radius: 6px; padding: 3px 7px; flex-shrink: 0; margin-top: 1px;
-    background: var(--border); color: var(--muted);
-  }
-  .ak-option.is-answer .ak-letter { background: var(--correct); color: #0a0e1a; }
-  .ak-option .ak-answer-tag {
-    font-size: 11px; font-weight: 700; color: var(--correct);
-    font-family: 'Space Mono', monospace; margin-left: auto; flex-shrink: 0; padding-top: 2px;
+  @media (max-width: 540px) {
+    .assignment-grid, .ak-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
@@ -299,83 +276,55 @@
 
 <div class="hero">
   <div class="hero-badge">NPTEL · IIT Kharagpur</div>
-  <h1>Education for<br>Sustainable Development</h1>
-  <p>Practice all 12 weekly assignments or challenge yourself with a random mixed quiz.</p>
+  <h1>Psychology of Learning</h1>
+  <p>Interactive practice quiz and full answer keys for Weeks 1 to 11 with verified lecture slide references.</p>
 </div>
 
 <div class="main">
-  <div id="home-view" class="home-section">
-    <div style="display:flex; gap:10px; margin-bottom:24px; flex-wrap:wrap; align-items:center;">
-      <div style="font-size:13px; color:var(--muted); font-weight:600; letter-spacing:0.5px; text-transform:uppercase;">Select Assignment</div>
+  <!-- HOME VIEW -->
+  <div id="home-view">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <div class="section-title">Weekly Assignments (Weeks 1 to 11)</div>
+      <div style="font-size:11px; color:var(--muted); font-family:'Space Mono',monospace;">110 MCQs</div>
     </div>
     <div class="assignment-grid" id="assignment-grid"></div>
-    <div style="margin-top:30px;">
-      <div style="font-size:13px; color:var(--muted); font-weight:600; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:14px;">Challenge Mode</div>
-      <div class="asgn-card" id="random-card" onclick="startRandom()" style="text-align:left; display:flex; align-items:center; gap:16px; max-width:100%;">
-        <div>
-          <span style="font-family:'Space Mono',monospace; font-size:28px; font-weight:700; color:var(--gold);">50Q</span>
+
+    <div style="margin-top:24px;">
+      <div class="section-title">Challenge Mode</div>
+      <div class="challenge-grid">
+        <div class="challenge-card" onclick="startRandom(30)">
+          <div class="c-num">30Q</div>
+          <div>
+            <div style="font-size:14px; font-weight:700; color:var(--text); margin-bottom:2px;">Random Mixed Quiz</div>
+            <div style="font-size:11px; color:var(--muted);">30 random questions from all 11 weeks</div>
+          </div>
         </div>
-        <div>
-          <div style="font-size:15px; font-weight:700; color:var(--text); margin-bottom:4px;">Random Mixed Quiz</div>
-          <div style="font-size:12px; color:var(--muted);">50 random questions · minimum 2 from each assignment</div>
+        <div class="challenge-card" onclick="startRandom(50)">
+          <div class="c-num">50Q</div>
+          <div>
+            <div style="font-size:14px; font-weight:700; color:var(--text); margin-bottom:2px;">Grand Mock Exam</div>
+            <div style="font-size:11px; color:var(--muted);">50 comprehensive questions balanced across weeks</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div style="margin-top:36px;">
-      <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
-        <div style="font-size:13px; color:var(--muted); font-weight:600; letter-spacing:0.5px; text-transform:uppercase;">Skip to Answers</div>
-        <div style="height:1px; flex:1; background:var(--border);"></div>
-        <div style="font-size:11px; color:#a78bfa; font-family:'Space Mono',monospace; font-weight:700;">ANSWER KEY</div>
-      </div>
-      <div style="background:rgba(167,139,250,0.06); border:1px solid rgba(167,139,250,0.18); border-radius:12px; padding:13px 16px; margin-bottom:16px; font-size:13px; color:#c4b5fd; line-height:1.6;">
-        View all questions with correct answers highlighted in green. Pick an assignment below to browse its full answer key.
-      </div>
+    <div style="margin-top:24px;">
+      <div class="section-title" style="color:var(--purple);">Skip to Verified Answer Keys</div>
       <div class="ak-grid" id="ak-grid"></div>
     </div>
 
-    <div id="marked-questions-section" style="margin-top:36px;">
-      <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
-        <div style="font-size:13px; color:var(--muted); font-weight:600; letter-spacing:0.5px; text-transform:uppercase;">My Important Questions</div>
-        <div style="height:1px; flex:1; background:var(--border);"></div>
-        <div style="font-size:11px; color:#fbbf24; font-family:'Space Mono',monospace; font-weight:700;">MARKED FOR REVIEW</div>
-      </div>
-      <div id="marked-questions-container">
-        <div style="background:rgba(251,191,36,0.06); border:1px solid rgba(251,191,36,0.18); border-radius:12px; padding:20px 16px; text-align:center; font-size:13px; color:#fcd34d; line-height:1.6;">
-          No questions marked as important yet. Mark questions during practice to see them here.
-        </div>
-      </div>
+    <div style="margin-top:24px;">
+      <div class="section-title" style="color:var(--gold);">My Important Questions</div>
+      <div id="marked-questions-container" style="margin-top:10px;"></div>
     </div>
   </div>
 
-  <div id="answers-view" style="display:none;">
-    <button class="back-btn" onclick="goHome()">&#8592; Back to Home</button>
-    <div class="ak-header">
-      <div style="flex:1; min-width:0;">
-        <div class="ak-title" id="ak-title"></div>
-        <div class="ak-subtitle" id="ak-subtitle"></div>
-      </div>
-      <div style="background:rgba(167,139,250,0.1); border:1px solid rgba(167,139,250,0.3); color:#a78bfa; padding:6px 14px; border-radius:20px; font-size:12px; font-weight:700; font-family:'Space Mono',monospace; white-space:nowrap; flex-shrink:0;">ANSWER KEY</div>
-    </div>
-    <div id="ak-questions-container"></div>
-  </div>
-
-  <div id="marked-view" style="display:none;">
-    <button class="back-btn" onclick="goHome()">&#8592; Back to Home</button>
-    <div class="ak-header">
-      <div style="flex:1; min-width:0;">
-        <div class="ak-title">My Important Questions</div>
-        <div class="ak-subtitle" id="marked-subtitle">Questions marked for review</div>
-      </div>
-      <div style="background:rgba(251,191,36,0.1); border:1px solid rgba(251,191,36,0.3); color:#fbbf24; padding:6px 14px; border-radius:20px; font-size:12px; font-weight:700; font-family:'Space Mono',monospace; white-space:nowrap; flex-shrink:0;">MARKED QUESTIONS</div>
-    </div>
-    <div id="marked-questions-list"></div>
-  </div>
-
+  <!-- QUIZ VIEW -->
   <div id="quiz-view" style="display:none;">
     <button class="back-btn" onclick="goHome()">&#8592; Back to Assignments</button>
     <div class="quiz-header">
-      <div>
+      <div style="flex:1;">
         <div class="quiz-title" id="quiz-title"></div>
         <div class="quiz-meta" id="quiz-meta"></div>
         <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
@@ -385,202 +334,223 @@
     <div id="questions-container"></div>
     <div id="results-container" style="display:none;"></div>
   </div>
+
+  <!-- ANSWER KEY VIEW -->
+  <div id="answers-view" style="display:none;">
+    <button class="back-btn" onclick="goHome()">&#8592; Back to Home</button>
+    <div class="quiz-header" style="border-color:rgba(167,139,250,0.3);">
+      <div style="flex:1;">
+        <div class="quiz-title" id="ak-title" style="color:var(--purple);"></div>
+        <div class="quiz-meta" id="ak-subtitle"></div>
+      </div>
+      <div style="background:rgba(167,139,250,0.12); border:1px solid rgba(167,139,250,0.3); color:var(--purple); padding:6px 14px; border-radius:20px; font-size:11px; font-weight:700; font-family:'Space Mono',monospace;">ANSWER KEY</div>
+    </div>
+    <div id="ak-questions-container"></div>
+  </div>
+
+  <!-- MARKED QUESTIONS VIEW -->
+  <div id="marked-view" style="display:none;">
+    <button class="back-btn" onclick="goHome()">&#8592; Back to Home</button>
+    <div class="quiz-header" style="border-color:rgba(251,191,36,0.3);">
+      <div style="flex:1;">
+        <div class="quiz-title" style="color:var(--gold);">My Important Questions</div>
+        <div class="quiz-meta" id="marked-subtitle">Starred for revision</div>
+      </div>
+      <div style="background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.3); color:var(--gold); padding:6px 14px; border-radius:20px; font-size:11px; font-weight:700; font-family:'Space Mono',monospace;">STARRED</div>
+    </div>
+    <div id="marked-questions-list"></div>
+  </div>
 </div>
 
-<footer>Created by <span>LTSyles</span></footer>
+<footer>Psychology of Learning · NPTEL IIT Kharagpur · <span>Weeks 1 to 11</span></footer>
 
 <script>
 const ASSIGNMENTS = {
   1: {
-    title: "Assignment 1",
-    topic: "SDGs, Poverty & Forests",
+    title: "Week 1 Assignment",
+    topic: "Introduction to Learning & Behaviorism",
+    session: "July 2026",
     questions: [
-      { q: "The Global Goals were adopted by all United Nations member states in ___ as a universal call to action to end poverty, protect the planet and ensure that all people enjoy peace and prosperity by ___.", options: ["2025, 2080","2020, 2060","2012, 2050","2015, 2030"], answer: 3 },
-      { q: "Which of the following is true?", options: ["The SDGs are a bold commitment to solely increase the GDP of India","Dealing with climate change has no impact on gender equality","Success in one SDG affects success of the others","Only 14 out of the 17 SDGs are interconnected"], answer: 2 },
-      { q: "In June 1992, at the Earth Summit in Rio de Janeiro, Brazil, more than 178 countries adopted ___.", options: ["Agenda 21","Millennium Development Goals","Agenda 51","Sustainable Development Goals"], answer: 0 },
-      { q: "Brundtland Report was released in 1987 by the WCED. WCED stands for ___.", options: ["World Commission on Environment Degradation","World Commission on Environment and Development","World Committee on Environmental Depletion","World Commission on Earth Development"], answer: 1 },
-      { q: "Extreme poverty means living on less than ___ a day.", options: ["$1.25","$4.25","$10.25","$100.25"], answer: 0 },
-      { q: "___ poverty measures reveal who is poor and how they are poor.", options: ["Unidimensional","Bidirectional","Multidimensional","Multidirectional"], answer: 2 },
-      { q: "SDG 2 aims end all forms of ___ by 2030.", options: ["crime","hunger and malnutrition","pollution","drought"], answer: 1 },
-      { q: "Which of the following is not one of the indicators of the Global Hunger Index?", options: ["prevalence of wasting and stunting in children under 5 years","under 5 child mortality rate","proportion of undernourished in the population","proportion of obese people in the population"], answer: 3 },
-      { q: "As per Ministry of Housing and Urban Affairs, 135 litre per capita per day (lpcd) has been suggested as the benchmark for urban water supply. For rural areas, a minimum service delivery of 55 lpcd has been fixed under___.", options: ["Jal Jeevan Mission","Jal Shakti Mission","Jal Protection Mission","Jal Janta Mission"], answer: 0 },
-      { q: "Forests cover about ___ percent of the Earth's surface.", options: ["5","85","30","50"], answer: 2 }
+      { q: "Learning is often seen as the contiguous causal effect of ____ on behavior.", options: ["blood","bone density","trauma","experience"], answer: 3, solution: "Please go through lecture notes of week-1 (slide no.03) for better understanding." },
+      { q: "In order to say that learning has occurred, a hidden change in behavior must occur.", options: ["True","False"], answer: 1, solution: "Please go through lecture notes of week-1 (slide no.03) for better understanding." },
+      { q: "Which of the following is not a mental construct?", options: ["skeleton","knowledge","representations","associations"], answer: 0, solution: "Please go through lecture notes of week-1 (slide no.04) for better understanding." },
+      { q: "Learning changes the ___ structure of the brain through the process of continuous interactions between the learner and the external environment.", options: ["physical","social","biological","none of the given"], answer: 0, solution: "Please go through lecture notes of week-1 (slide no.04) for better understanding." },
+      { q: "___ shapes the learning process.", options: ["Only thoughts","Only emotions","Both thoughts and emotions","Neither thoughts nor emotions"], answer: 2, solution: "Please go through lecture notes of week-1 (slide no.07) for better understanding." },
+      { q: "Watson's work included the famous Little Albert experiment in which he conditioned a small child to ___ a white rat.", options: ["fear","love","hate","play with"], answer: 0, solution: "Please go through lecture notes of week-1 (slide no.07) for better understanding." },
+      { q: "Behaviorism dominated psychology for much of the early ___ century.", options: ["20th","19th","18th","17th"], answer: 0, solution: "Please go through lecture notes of week-1 (slide no.07) for better understanding." },
+      { q: "The state of “conscious incompetence” may be valuable ____ of a learning experience.", options: ["at the end","in the middle","2 years after the end","at the start"], answer: 3, solution: "Please go through lecture notes of week-1 (slide no.11) for better understanding." },
+      { q: "Which of the following is not an outcome of effective e-learning?", options: ["wider range of strategies","more reflective approach","more positive emotions towards learning","more disconnected knowledge"], answer: 3, solution: "Please go through lecture notes of week-1 (slide no.14) for better understanding." },
+      { q: "Instrumental conditioning is an example of ___ learning.", options: ["sensitization","habituation","associative","meaningful"], answer: 2, solution: "Please go through lecture notes of week-1 (slide no.24) for better understanding." }
     ]
   },
   2: {
-    title: "Assignment 2",
-    topic: "ESD Framework & Human Rights",
+    title: "Week 2 Assignment",
+    topic: "Conditioning & Intelligence Models",
+    session: "July 2026",
     questions: [
-      { q: "Which of the following is a characteristic of ESD as described in the framework?", options: ["It is not locally relevant","It promotes learning only for children","It is interdisciplinary","It uses only two pedagogical techniques"], answer: 2 },
-      { q: "The Declaration on the Right to Development (1986) established that everyone is entitled to participate in and enjoy:", options: ["only economic and social development","economic, political, psychological and communist development","economic, social, cultural and political development","only cultural development"], answer: 2 },
-      { q: "Text based methods for assessing ESD programs can be improved by using ___.", options: ["interpretive methodologies","strict curriculum","only quantitative techniques","only qualitative methods"], answer: 0 },
-      { q: "SDGs are for the following except ___.", options: ["people","practice","planet","partnership"], answer: 1 },
-      { q: "Policies like employment and labor rights, care and family leaves, and financial regulation are often called the ___ policies.", options: ["post-regulation","self-care","forceful","pre-distributive"], answer: 3 },
-      { q: "Which of the following is involved in the development of the HRE indicator framework to measure progress on national implementation of human rights education?", options: ["Danish Institute of Human Rights","The Office of the High Commissioner for Human Rights","Both A and B","Neither A nor B"], answer: 2 },
-      { q: "___ plays a role in peace education.", options: ["schools","parents","community","all the given"], answer: 3 },
-      { q: "The enterprise of education at its most profound level is ___.", options: ["discriminatory","selective","restricted","transformative"], answer: 3 },
-      { q: "UNESCO's World in 2030 survey revealed that respondents see ___ as one of the top global challenges.", options: ["climate change","hunger","unemployment","mental health"], answer: 0 },
-      { q: "Education for sustainable development and peace develops people's skills to take actions that improve our quality of life___.", options: ["only now","only for the future","for now and for the future","only for the past"], answer: 2 }
+      { q: "The three major types of learning described by ___ psychology are classical conditioning, operant conditioning and observational learning.", options: ["cognitive","behavioral","emotional","evolutionary"], answer: 1, solution: "Please go through lecture notes of week-2 (slide no.2) for better understanding." },
+      { q: "According to the view of Watson, psychology is ___.", options: ["subjective","only descriptive","experimental","about internal mental processes that cannot be measured and observed"], answer: 2, solution: "Please go through lecture notes of week-2 (slide no.3) for better understanding." },
+      { q: "___ is given by Ivan Pavlov.", options: ["Operant conditioning","Functional conditioning","Classical conditioning","Modern conditioning"], answer: 2, solution: "Please go through lecture notes of week-2 (slide no.5) for better understanding." },
+      { q: "The process by which organisms learn to respond to certain stimuli but not to others is known as ___.", options: ["stimulus generalization","stimulus appreciation","stimulus discrimination","stimulus differentiation"], answer: 2, solution: "Please go through lecture notes of week-2 (slide no.11) for better understanding." },
+      { q: "Higher-order conditioning is intrinsically weaker than its first-order counterpart.", options: ["True","False"], answer: 0, solution: "Please go through lecture notes of week-2 (slide no.12) for better understanding." },
+      { q: "____ is the process of gradually changing the quality of a response.", options: ["Shaping","Modeling","Cueing","Shifting"], answer: 0, solution: "Please go through lecture notes of week-2 (slide no.23) for better understanding." },
+      { q: "The works of ___ were instrumental in engendering the dramatic shift from behaviorism to cognitive theories.", options: ["Edward C. Tolman","Jean Piaget","German Gestalt","All of the given"], answer: 3, solution: "Please go through lecture notes of week-2 (slide no.39) for better understanding." },
+      { q: "___ intelligence is the ability to perceive the visual–spatial world accurately and involves sensitivity to color, line, shape, form, space, and the potential for recognizing and manipulating the patterns of spaces.", options: ["Interpersonal","Spatial","Bodily-kinesthetic","Linguistic"], answer: 1, solution: "Please go through lecture notes of week-2 (slide no.48) for better understanding." },
+      { q: "Sternberg proposed his theory in 1985 as an alternative to the idea of the ___.", options: ["general intelligence factor","multiple intelligences","specific intelligence factor","unconscious intelligence"], answer: 0, solution: "Please go through lecture notes of week-2 (slide no.51) for better understanding." },
+      { q: "Which of the following is not a kind of product in the structure of intellect model?", options: ["symbolic","classes","systems","implications"], answer: 0, solution: "Please go through lecture notes of week-2 (slide no.79) for better understanding." }
     ]
   },
   3: {
-    title: "Assignment 3",
-    topic: "Global Citizenship & Green Jobs",
+    title: "Week 3 Assignment",
+    topic: "Memory Systems & Information Processing",
+    session: "July 2026",
     questions: [
-      { q: "Global citizenship is a belief that individuals are members of ___ networks.", options: ["multiple","diverse","local and non-local","all of the given"], answer: 3 },
-      { q: "A global citizen ___.", options: ["is not aware of the wider world","is confused about their place in the world","takes an active role in their community","do not care much about the planet"], answer: 2 },
-      { q: "Global citizenship education is based on ___ domains of learning.", options: ["three","two","four","seven"], answer: 0 },
-      { q: "___ is UNESCO's first Category 1 education-related institute in the Asia-Pacific region.", options: ["MGEIN","MGIER","MGIEP","MGOEL"], answer: 2 },
-      { q: "SDG target 4.7 rearticulates a ___ agenda for education.", options: ["regional","behavioral","political","humanistic"], answer: 3 },
-      { q: "SEL stands for ___.", options: ["Sustainable education and learning","Social and environmental learning","Social and emotional learning","Sustainable and economic learning"], answer: 2 },
-      { q: "Which of the following is a role taken by a teacher in education for sustainable development?", options: ["facilitator","guide","role model","all of the given"], answer: 3 },
-      { q: "Target ___ calls for strengthening efforts to protect and safeguard the world's cultural and natural heritage.", options: ["9.5","1.5","2.3","11.4"], answer: 3 },
-      { q: "The UNESCO International Centre for Technical and Vocational Education and Training enables ___ in member states.", options: ["green TVET","blue TVET","orange TVET","white TVET"], answer: 0 },
-      { q: "Which of the following statements is not true?", options: ["green jobs contribute to preserving environmental quality","green jobs ensure workers' rights","green jobs are only found in the agriculture sector","green jobs must be accessible to all"], answer: 2 }
+      { q: "The connections between nerves cells are called ___.", options: ["systems","syntaxes","neurons","synapses"], answer: 3, solution: "Please go through lecture notes of week-3 (slide no.02) for better understanding." },
+      { q: "In order to create a ___, information must be changed into a usable form, which occurs through a process known as encoding.", options: ["past memory","new imagination","new memory","past imagination"], answer: 2, solution: "Please go through lecture notes of week-3 (slide no.03) for better understanding." },
+      { q: "Calling back the stored information in response to some cue for use in a process or activity is called ___.", options: ["Retrieval","Recall","Recollection","All of the given"], answer: 3, solution: "Please go through lecture notes of week-3 (slide no.03) for better understanding." },
+      { q: "For many with ___ deficits, reading facial expressions and knowing how to respond are confusing daily challenges.", options: ["memory","intelligence","social cognition","biological cognition"], answer: 2, solution: "Please go through lecture notes of week-3 (slide no.08) for better understanding." },
+      { q: "The Information Processing View of Learning assumes that there are limits to how much information can be processed at each stage.", options: ["True","False"], answer: 0, solution: "Please go through lecture notes of week-3 (slide no.09) for better understanding." },
+      { q: "The Information Processing View of Learning assumes that information process is involved in ___", options: ["forgetting","remembering","perceiving","All of the given"], answer: 3, solution: "Please go through lecture notes of week-3 (slide no.09) for better understanding." },
+      { q: "The capacity of the sensory register is ___.", options: ["very small","very large","7+/-2 chunks","unlimited"], answer: 1, solution: "Please go through lecture notes of week-3 (slide no.14) for better understanding." },
+      { q: "Most children do not begin to engage in the process of rehearsal on their own until about age ___.", options: ["seven","two","thirteen","one"], answer: 0, solution: "Please go through lecture notes of week-3 (slide no.16) for better understanding." },
+      { q: "___ provides an interface between the sub-systems of working memory and the part of long term memory specialized for episodic memory.", options: ["Phonological loop","Visuo-spatial sketchpad","Retrieval buffer","Episodic buffer"], answer: 3, solution: "Please go through lecture notes of week-3 (slide no.27) for better understanding." },
+      { q: "Memories of specific episodes of one’s life refers to ___.", options: ["declarative memory","experimental episodic memory","autobiographical episodic memory","procedural memory"], answer: 2, solution: "Please go through lecture notes of week-3 (slide no.34) for better understanding." }
     ]
   },
   4: {
-    title: "Assignment 4",
-    topic: "Green Skills & Sustainable Health",
+    title: "Week 4 Assignment",
+    topic: "Thinking, Taxonomies & Metacognition",
+    session: "July 2026",
     questions: [
-      { q: "GESO stands for ___.", options: ["Green Education for Sustainable Occupation","Green Enhanced Sustainable Occupation","Green Enhanced Skills Occupation","None of the above"], answer: 2 },
-      { q: "The classification of occupations into GIDO, GESO and GNEO is given by US National Center for ___.", options: ["G*NET","A*NET","I*NET","O*NET"], answer: 3 },
-      { q: "The International Framework for Greening TVET consists of the following tiers, except ___.", options: ["Breaking TVET institutions","Transforming TVET institutions","Formulating National Policies","Forming International Alliance"], answer: 0 },
-      { q: "Energy, water and waste management comes under the ___ dimension of Greening TVET.", options: ["Green research","Green culture","Green teaching","Green campus"], answer: 3 },
-      { q: "Industry-institute interaction is an indicator of ___.", options: ["green house","green teaching","green campus","green curriculum"], answer: 3 },
-      { q: "Sustainable entrepreneurship includes ___.", options: ["social entrepreneurship","eco-preneurship","intra-preneurship","all of the given"], answer: 3 },
-      { q: "ESD requires ___ learning methods.", options: ["participatory","passive","rigid","static"], answer: 0 },
-      { q: "Which of the following is a transversal competency?", options: ["creativity","empathy","systems thinking","all of the given"], answer: 3 },
-      { q: "___ is the ability to create good relationships and adapt to different social situations.", options: ["emotional fitness","mental health","social health","physical health"], answer: 2 },
-      { q: "Sustainable health is ___.", options: ["a curative approach","only about the body","a balance of mind, body and spirit","only about mental health"], answer: 2 }
+      { q: "___ thinking is the ability to create mental representations of objects, places, events, or people in your mind.", options: ["General","Creative","Divergent","Symbolic"], answer: 3, solution: "Please go through lecture notes of week-4 (slide no.03) for better understanding." },
+      { q: "We compare new information to our ___ of the person, place, or thing, so we know how to categorize the new information mentally.", options: ["protofit","protobite","prototype","none of the given"], answer: 2, solution: "Please go through lecture notes of week-4 (slide no.04) for better understanding." },
+      { q: "Which of the following is not true?", options: ["Thinking is a higher mental process","Thinking is a sub-vocal talking","Thinking is fulfilling a need or problem solving","Thinking is only done in verbal symbols"], answer: 3, solution: "Please go through lecture notes of week-4 (slide no.6) for better understanding." },
+      { q: "Mental images are ___.", options: ["Auditory","Visual","Gustatory","All of the given"], answer: 3, solution: "Please go through lecture notes of week-4 (slide no.07) for better understanding." },
+      { q: "___ organize complex phenomena into simpler, easily understandable, and usable categories and help to solve our problems.", options: ["Concepts","Propositions","Constructs","Components"], answer: 0, solution: "Please go through lecture notes of week-4 (slide no.08) for better understanding." },
+      { q: "The lowermost level of Bloom’s taxonomy is ___.", options: ["remember","apply","understand","analyze"], answer: 0, solution: "Please go through lecture notes of week-4 (slide no.13) for better understanding." },
+      { q: "The psychomotor domain of the Bloom’s taxonomy is concerned with ___.", options: ["Biological makeup","Thoughts and beliefs","Feelings and emotions","Skilled behavior"], answer: 3, solution: "Please go through lecture notes of week-4 (slide no.17) for better understanding." },
+      { q: "Which of the following is an example of meta-cognition skills?", options: ["Ignoring your limits","Self-monitoring","Skimming all important information","All of the given"], answer: 1, solution: "Please go through lecture notes of week-4 (slide no.24) for better understanding." },
+      { q: "___ critical thinking skill helps you analyze and process information to come to an unbiased conclusion.", options: ["Open-mindedness","Self-regulation","Self-control","Observation"], answer: 0, solution: "Please go through lecture notes of week-4 (slide no.32) for better understanding." },
+      { q: "The inspiration phase of the creative thinking process refers to the ___ stage.", options: ["Incubation","Insight","Evaluation","Preparation"], answer: 3, solution: "Please go through lecture notes of week-4 (slide no.51) for better understanding." }
     ]
   },
   5: {
-    title: "Assignment 5",
-    topic: "Healthcare & Food Security",
+    title: "Week 5 Assignment",
+    topic: "Motivation, Drives & Need Hierarchy",
+    session: "July 2026",
     questions: [
-      { q: "Siddha comes under the ___.", options: ["public health sector","voluntary health agencies","indigenous system of medicine","private health sector"], answer: 2 },
-      { q: "Which of the following is not a problem of healthcare infrastructure in India?", options: ["shortage of staff","skewed favor to urban areas","no proper regulatory mechanism","standard procedures in all regions"], answer: 3 },
-      { q: "Which of the following is a health system building block as suggested by WHO?", options: ["Economic growth","Access to public transport","Politics","Service delivery"], answer: 3 },
-      { q: "An ecologically sustainable approach broadens the definition of ___.", options: ["objective","outcome","cost","value"], answer: 3 },
-      { q: "A ___ is an environment in which data of medical interest can be stored and made easily available.", options: ["health repository","health bank","health bag","health grid"], answer: 3 },
-      { q: "The POSHAN Abhiyan in India aims to improve nutritional outcomes for ___.", options: ["children","lactating mothers","pregnant women","all of the given"], answer: 3 },
-      { q: "Sus-QI stands for ___.", options: ["Sustainable quality improvement","Sustainable quality improvisation","Sustainable quantity improvement","Sustainable quantity improvisation"], answer: 0 },
-      { q: "Which of the following is not a stage of Sus-QI?", options: ["set goals","measure impacts","design the improvement effort","ignore the system"], answer: 3 },
-      { q: "Food insecurity is measured on the ___.", options: ["FIES","FAIS","FIET","FAIR"], answer: 0 },
-      { q: "The UN lists ___ levels of food security for any given country.", options: ["5","4","3","2"], answer: 0 }
+      { q: "Which of the following is true about motivation?", options: ["It is a physical impulse","It is an external process","It has a willingness to activate but not channel the attitudes of learners","None of the given"], answer: 3, solution: "Please go through lecture notes of week-5 (slide no.02) for better understanding." },
+      { q: "The term “motivation” comes from a ___ word.", options: ["Greek","Latin","Hindi","Bengali"], answer: 1, solution: "Please go through lecture notes of week-5 (slide no.04) for better understanding." },
+      { q: "It is called extrinsic motivation if causal factor is ___.", options: ["curiosity","social pressure","self-satisfaction","needs"], answer: 1, solution: "Please go through lecture notes of week-5 (slide no.5) for better understanding." },
+      { q: "___ motivation is considered to be more crucial for students as it is associated with deep learning, better performance and self-efficacy.", options: ["Intrinsic","Extrinsic","Introjected regulation","None of the given"], answer: 0, solution: "Please go through lecture notes of week-5 (slide no.7) for better understanding." },
+      { q: "___ proposed that there are three primary drives that drive human behavior.", options: ["Hull","Watson","Piaget","Gestalt"], answer: 0, solution: "Please go through lecture notes of week-5 (slide no.12) for better understanding." },
+      { q: "Expectancy Theory of Motivation was developed by ___.", options: ["Vroom","Hull","Murray","None of the given"], answer: 0, solution: "Please go through lecture notes of week-5 (slide no.21) for better understanding." },
+      { q: "An example of ___ is thinking, “If I work hard I can achieve the targets my boss has set for me”.", options: ["purposeful","valence","instrumentality","expectancy"], answer: 3, solution: "Please go through lecture notes of week-5 (slide no.23) for better understanding." },
+      { q: "In SMART goals, T stands for ___.", options: ["Temporary","Time-based","Tough","Testing"], answer: 1, solution: "Please go through lecture notes of week-5 (slide no.27) for better understanding." },
+      { q: "Friendship is a ___ need in Maslow’s hierarchy.", options: ["Love and belonging","Esteem","Physiological","Safety"], answer: 0, solution: "Please go through lecture notes of week-5 (slide no.31-32) for better understanding." },
+      { q: "___ theory differentiates between autonomous motivation and controlled motivation.", options: ["Arousal","Goal-setting","Need hierarchy","Self-determination"], answer: 3, solution: "Please go through lecture notes of week-5 (slide no.37) for better understanding." }
     ]
   },
   6: {
-    title: "Assignment 6",
-    topic: "Hunger, Food & Agriculture",
+    title: "Week 6 Assignment",
+    topic: "Emotional Intelligence & Self-Regulation",
+    session: "July 2026",
     questions: [
-      { q: "Poor infrastructure can cause hunger in a country.", options: ["True","False"], answer: 0 },
-      { q: "In high income countries, hunger is mainly caused due to poverty that results from ___.", options: ["low GDP of the country","lack of access to food","poor public transport infrastructure","lack of jobs"], answer: 3 },
-      { q: "Which of the following is true about hunger?", options: ["It is a cause of war","It is an effect of war","It is both a cause and effect of war","It is neither a cause nor an effect of war"], answer: 2 },
-      { q: "___ are most vulnerable to the harmful effects of hidden hunger.", options: ["adults","infants","adolescents","elderly"], answer: 1 },
-      { q: "Desertification is typically a result of ___.", options: ["drought","deforestation","inappropriate agriculture","all of the given"], answer: 3 },
-      { q: "Which of the following is a key initiative in India for the problem of hunger?", options: ["One Nation, One Plate","One Nation, One Hunger","One Nation, No Ration Card","One Nation, One Ration Card"], answer: 3 },
-      { q: "In the past, MGNREGA has ___.", options: ["decreased rural wages","increased gender wage gaps","enabled poor access to food","reduced distress migration from rural areas"], answer: 3 },
-      { q: "Wheat productivity can suffer if ___.", options: ["temperature rises","temperature does not change","temperature falls","none of the given"], answer: 0 },
-      { q: "Bringing forgotten and neglected foods like yam into cultivation and onto the market is called ___.", options: ["diversifying food basket","restricting food basket","completing food box","wasting food basket"], answer: 0 },
-      { q: "Home gardening has been proven as a reliable source to supplement food and nutritional security at the household level.", options: ["True","False"], answer: 0 }
+      { q: "According to Daniel Goleman, ___ component of emotional intelligence focuses on how we handle relationships with others.", options: ["self-awareness","motivation","empathy","emotional regulation"], answer: 2, solution: "Please go through lecture notes of week-6 (slide no.02) for better understanding." },
+      { q: "Emotional intelligence can be considered a type of ___ intelligence.", options: ["academic","genetic","social","external"], answer: 2, solution: "Please go through lecture notes of week-6 (slide no.03) for better understanding." },
+      { q: "Noticing a difficult emotion and slowing down or resisting any impulsive action that may follow highlights ___ component of emotional intelligence.", options: ["Self-regulation","Motivation","Emotional literacy","Empathy"], answer: 0, solution: "Please go through lecture notes of week-6 (slide no.04) for better understanding." },
+      { q: "The following are signs of emotional intelligence, except ___.", options: ["strong sense of curiosity","holding onto mistakes","ability to manage emotions in difficult situations","self-confidence"], answer: 1, solution: "Please go through lecture notes of week-6 (slide no.07) for better understanding." },
+      { q: "Perceiving emotions means ___.", options: ["Ignoring signals","Understanding only what somebody is saying to you","Understanding only somebody’s facial expression","Understanding both verbal and nonverbal signals"], answer: 3, solution: "Please go through lecture notes of week-6 (slide no.11) for better understanding." },
+      { q: "___ suggests that 10 distinct components provide the scaffolding of emotionally and socially intelligent behaviors:", options: ["Bar-On","Goleman","Salovey","Mayer"], answer: 0, solution: "Please go through lecture notes of week-6 (slide no.15) for better understanding." },
+      { q: "Which of the following is a facilitator of EQ?", options: ["optimism","happiness","independence","all of the given"], answer: 3, solution: "Please go through lecture notes of week-6 (slide no.18) for better understanding." },
+      { q: "___ is a strategy for improving one’s self-awareness.", options: ["rejecting feedback","using critical self-talk daily","developing a fixed mindset","pursuing one’s passion"], answer: 3, solution: "Please go through lecture notes of week-6 (slide no.20) for better understanding." },
+      { q: "Having students create autobiographies is an example of creating opportunities for ___.", options: ["emotional labor","emotional contagion","metacognition","none of the given"], answer: 2, solution: "Please go through lecture notes of week-6 (slide no.23) for better understanding." },
+      { q: "Which of the following is not true about management of emotions?", options: ["It is essentially a private act","It is directly regulated by others","It is influenced by cultural norms","It is influenced by what society defines as appropriate to feel and express"], answer: 1, solution: "Please go through lecture notes of week-6 (slide no.30) for better understanding." }
     ]
   },
   7: {
-    title: "Assignment 7",
-    topic: "Energy, Climate & Air Pollution",
+    title: "Week 7 Assignment",
+    topic: "Learning Orientations & Instructional Design",
+    session: "July 2025",
     questions: [
-      { q: "Which of the following is a type of energy?", options: ["fossil fuels","nuclear power","traditional biomass","all of the given"], answer: 3 },
-      { q: "In IPCC by UN, I stands for ___.", options: ["Industrial","Internal","International","Intergovernmental"], answer: 3 },
-      { q: "The extraction, transport and refinement of nuclear fuels results in ___.", options: ["improvement of land from mining","pollution of air and water","replenishment of biodiversity","all of the given"], answer: 1 },
-      { q: "The greatest contributor to air pollution in China is ___.", options: ["cooking and heating","coal burning","transport","forest burning"], answer: 1 },
-      { q: "In the wake of tsunami and nuclear disaster following severe earthquake in 2011, a city in Japan set a target for ___ by 2022.", options: ["hundred net energy","one net energy","million net energy","zero net energy"], answer: 3 },
-      { q: "The term 'energy democracy' grew out of the ___ movement.", options: ["hunger justice","hunger revolt","climate revolt","climate justice"], answer: 3 },
-      { q: "The Paris Agreement is a legally binding treaty on ___ adopted by 196 parties at COP 21 in 2015.", options: ["climate change","education","poverty","none of the given"], answer: 0 },
-      { q: "The Government of India launched the NAPCC in 2008 outlining ___ National Missions on climate change.", options: ["8","2","100","78"], answer: 0 },
-      { q: "Stubble burning usually takes place in the months of ___.", options: ["October-November","May-June","January-February","July-August"], answer: 0 },
-      { q: "Stubble burning is ___.", options: ["intentional","natural","healthy for air quality","related to burning of paper"], answer: 0 }
+      { q: "Which of the following is false about learning according to Gagne’s definition?", options: ["It is a change in human disposition","It persists over a period of time","It is simply ascribable to processes of growth","None of the above"], answer: 2, solution: "Please go through lecture notes of week-7 (slide no.03) for better understanding." },
+      { q: "Manual or physical skills come under ___ component of Bloom’s taxonomy.", options: ["Cognitive","Affective","Psychomotor","Physical"], answer: 2, solution: "Please go through lecture notes of week-7 (slide no.04) for better understanding." },
+      { q: "Reflection, learning and education was explored by ___.", options: ["Carl Rogers","John Watson","Benjamin Bloom","John Dewey"], answer: 3, solution: "Please go through lecture notes of week-7 (slide no.05) for better understanding." },
+      { q: "The principles of ___ refer to how close in time two events must be for a bond to be formed.", options: ["behavior","reinforcement","repetition","contiguity"], answer: 3, solution: "Please go through lecture notes of week-7 (slide no.6) for better understanding." },
+      { q: "___ gives information to learners about their success or failure concerning the task at hand.", options: ["Cognitive feedback","Emotional feedback","Reinforcement","Physical feedback"], answer: 0, solution: "Please go through lecture notes of week-7 (slide no.7) for better understanding." },
+      { q: "The ___ orientation to learning has a quality of personal involvement—the whole person in both feeling and cognitive aspects being in the learning event.", options: ["behavioral","cognitive","humanistic","social"], answer: 2, solution: "Please go through lecture notes of week-7 (slide no.8) for better understanding." },
+      { q: "Learning through play is ___ learning.", options: ["primary","secondary","passive","active"], answer: 3, solution: "Please go through lecture notes of week-7 (slide no.15) for better understanding." },
+      { q: "People with ___ learning style are prone to sorting their ideas after speaking, rather than thinking ideas through before.", options: ["logical","solitary","visual","auditory"], answer: 3, solution: "Please go through lecture notes of week-7 (slide no.17) for better understanding." },
+      { q: "Which of the following statements is false?", options: ["Effective instruction is static","Effective instruction is eclectic","Effective instruction is generative","Effective instruction is interactive"], answer: 0, solution: "Please go through lecture notes of week-7 (slide no.22) for better understanding." },
+      { q: "In ADDIE model, I stand for ___.", options: ["instruction","implementation","integration","induction"], answer: 1, solution: "Please go through lecture notes of week-7 (slide no.33) for better understanding." }
     ]
   },
   8: {
-    title: "Assignment 8",
-    topic: "ESD Competencies & Learning",
+    title: "Week 8 Assignment",
+    topic: "Pedagogy & Experiential Learning",
+    session: "July 2026",
     questions: [
-      { q: "The Okayama Commitment is from ___.", options: ["Russia","South Korea","North Korea","Japan"], answer: 3 },
-      { q: "Which of the following is a policy support mechanism of Okayama Commitment?", options: ["Taking money","Content development","Exploitation of resources","None of the given"], answer: 1 },
-      { q: "Education is related to SDG 9 such that ___.", options: ["education helps in skills required to build resilient infrastructure","education enhances skills to use natural resources more sustainably","education is critical to lifting people out of poverty","education helps reduce gender gaps"], answer: 0 },
-      { q: "The frame model structures sustainability competencies into ___ goal dimensions.", options: ["8","3","11","45"], answer: 1 },
-      { q: "Sustainability issues must be looked at through a ___ approach.", options: ["isolated thinking","independent thinking","silos thinking","systems thinking"], answer: 3 },
-      { q: "Technology and Science can alone solve all our sustainability problems.", options: ["True","False"], answer: 1 },
-      { q: "GAP in the context of ESD stands for ___.", options: ["Global Action Programme","Great Activity Plan","Global Attention Programme","Great Action Policy"], answer: 0 },
-      { q: "___ competency is the ability to understand and evaluate multiple futures.", options: ["anticipatory","normative","strategic","collaborative"], answer: 0 },
-      { q: "The ability to question norms is ___ competency.", options: ["critical thinking","normative","anticipatory","self-awareness"], answer: 0 },
-      { q: "Action-oriented learning draws on Kolb's concept of ___.", options: ["experiential learning","experimental learning","rote learning","direct learning"], answer: 0 }
+      { q: "The word ‘pedagogy’ has been derived from the ___ word “pedagogue”.", options: ["Latin","Sanskrit","Greek","English"], answer: 2, solution: "Please go through lecture notes of week-8 (slide no.03) for better understanding." },
+      { q: "Which of the following statements is not true about pedagogy?", options: ["It is a method or way of teaching","It is derived from the Greek word “pedagogue”","It helps a teacher understand how learning should be facilitated.","It harms the quality of teaching and learning."], answer: 3, solution: "Please go through lecture notes of week-8 (slide no.03-05) for better understanding." },
+      { q: "Pedagogy can enhance the student-teacher relationship.", options: ["True","False"], answer: 0, solution: "Please go through lecture notes of week-8 (slide no.03) for better understanding." },
+      { q: "___ learning is based on the model that knowledge can be created within a population where members actively interact by sharing experiences and take on asymmetry roles.", options: ["integrative","inquiry-based","collaborative","constructivist"], answer: 2, solution: "Please go through lecture notes of week-8 (slide no.06) for better understanding." },
+      { q: "The Pedagogical Model provides an overview of the learning cycle and breaks it down into ___ domains or phases of instruction.", options: ["five","three","two","seven"], answer: 0, solution: "Please go through lecture notes of week-8 (slide no.09) for better understanding." },
+      { q: "Which of the following is not a type of inquiry-based approach?", options: ["confrontation","structure","guided","open"], answer: 0, solution: "Please go through lecture notes of week-8 (slide no.10) for better understanding." },
+      { q: "In experiential learning, students are engaged ___.", options: ["intellectually","soulfully","socially","all of the given"], answer: 3, solution: "Please go through lecture notes of week-8 (slide no.14) for better understanding." },
+      { q: "___ stage of experiential theory by Kolb focuses on planning.", options: ["concrete experience","abstract conceptualization","reflective observation","active experimentation"], answer: 3, solution: "Please go through lecture notes of week-8 (slide no.21) for better understanding." },
+      { q: "People with a ___ learning style can often act on “gut feeling” and will rely on others' analysis rather than their own.", options: ["accommodating","converging","diverging","assimilating"], answer: 0, solution: "Please go through lecture notes of week-8 (slide no.25) for better understanding." },
+      { q: "According to the ___ principle, students learn better from animation and narration than from animation and on-screen text.", options: ["multimedia","modality","coherence","temporal contiguity"], answer: 1, solution: "Please go through lecture notes of week-8 (slide no.45) for better understanding." }
     ]
   },
   9: {
-    title: "Assignment 9",
-    topic: "Pedagogical Methods & Learning",
+    title: "Week 9 Assignment",
+    topic: "E-Learning Foundations & Cognitive Processing",
+    session: "July 2026",
     questions: [
-      { q: "Activities like fish bowl discussion help ___.", options: ["passive thinking","critical and reflexive thinking","rote-memory","all of the given"], answer: 1 },
-      { q: "Which of the following is not a vision-building exercise?", options: ["scenario analysis","classroom teaching","science fiction thinking","dystopian storytelling"], answer: 1 },
-      { q: "The ability to hold contradictory thoughts and feelings is an ___ competency.", options: ["intellectual","interpersonal","intrapersonal","institutional"], answer: 2 },
-      { q: "___ intelligences is proposed by Howard Gardner.", options: ["multiple","singular","double","triple"], answer: 0 },
-      { q: "___ intelligence refers to using one's body in skilled ways.", options: ["kinesthetic","musical","naturalist","spatial"], answer: 0 },
-      { q: "The idea of big transformation implies that changes in individual action are intertwined with ___.", options: ["reorganization of self","reorganization of societal structures","ignorance of others","none of the given"], answer: 1 },
-      { q: "In ___ learning, learners start to question all the things they knew to make room for new insights and information.", options: ["transformative","transactional","trivial","trans-disciplinary"], answer: 0 },
-      { q: "Which of the following is a key principle of adult education?", options: ["need to know why","guilt","boredom","none of the given"], answer: 0 },
-      { q: "___ Sustainable Development is a process through which people influence and share control over development initiatives, decisions and resources that affects them.", options: ["Internal","Societal","Participatory","Transformational"], answer: 2 },
-      { q: "___ is the common regulatory body for higher education in India.", options: ["HECI","WHO","AIIMS","None of the given"], answer: 0 }
+      { q: "E-learning is any form of ___.", options: ["teaching","training","tutoring","all of the given"], answer: 3, solution: "Please go through lecture notes of week-9 (slide no.02) for better understanding." },
+      { q: "___ is a feature of e-learning.", options: ["difficulty in access","user friendliness","social injustice","closed learning"], answer: 1, solution: "Please go through lecture notes of week-9 (slide no.02) for better understanding." },
+      { q: "E-learning is a synonym of audio-visual learning, multimedia learning, and distance learning.", options: ["True","False"], answer: 1, solution: "Please go through lecture notes of week-9 (slide no.05) for better understanding." },
+      { q: "Which of the following is not a type of e-learning?", options: ["text-driven","interactive","simulation","physical"], answer: 3, solution: "Please go through lecture notes of week-9 (slide no.05-06) for better understanding." },
+      { q: "Which of the following is not a benefit of e-learning?", options: ["It can accommodate the need of a housewife","People can revise the learning content as many times as they want","It facilitates in developing and communicating new training policies","None of the given"], answer: 3, solution: "Please go through lecture notes of week-9 (slide no.06) for better understanding." },
+      { q: "Good learners know ___.", options: ["What they are learning","Why they are learning","How they are learning","All of the given"], answer: 3, solution: "Please go through lecture notes of week-9 (slide no.12) for better understanding." },
+      { q: "Learners may multitask when engaging in an online course, which could be resulting in ___.", options: ["hyperfocus","better retrieval","shorter attention spans","None of the given"], answer: 2, solution: "Please go through lecture notes of week-9 (slide no.19) for better understanding." },
+      { q: "___ learning is the crucial determinant of successful e-learning.", options: ["passive","retrospective","social","active"], answer: 3, solution: "Please go through lecture notes of week-9 (slide no.13) for better understanding." },
+      { q: "The brain can process 36,000 visual cues per___.", options: ["hour","second","day","year"], answer: 0, solution: "Please go through lecture notes of week-9 (slide no.14) for better understanding." },
+      { q: "For effective learning, online courses should ___.", options: ["use headings","use complex language","present long pieces of text","use random images"], answer: 0, solution: "Please go through lecture notes of week-9 (slide no.20) for better understanding." }
     ]
   },
   10: {
-    title: "Assignment 10",
-    topic: "Sustainable Leadership",
+    title: "Week 10 Assignment",
+    topic: "Digital Pedagogy, 21st-Century Teacher & Assessment",
+    session: "July 2026",
     questions: [
-      { q: "Sustainable leaders look at immediate, short-term gains.", options: ["True","False"], answer: 1 },
-      { q: "The need of the hour is to have leaders who ___.", options: ["focus only on business profit","focus only on building technical solutions","take a holistic approach","none of the given"], answer: 2 },
-      { q: "Which of the following is a part of the 3Ps of triple bottom line?", options: ["Profit","Passion","Party","Pivot"], answer: 0 },
-      { q: "Organizations need leaders who create value for ___.", options: ["internal stakeholders","external stakeholders","oneself","all stakeholders"], answer: 3 },
-      { q: "The sustainability mindset involves ___.", options: ["transparency","presencing","integrity","all of the given"], answer: 3 },
-      { q: "Finding ways to maintain one's own and others' energy is an unsustainable leadership practice.", options: ["True","False"], answer: 1 },
-      { q: "Systems thinking is often highlighted by the ability to ___.", options: ["zoom in","zoom out","zoom in and out","none of the given"], answer: 2 },
-      { q: "Practicing consciousness awareness includes ___.", options: ["ignoring self with others","forgetting about what has happened and moving on","living in denial","authentic interactions"], answer: 3 },
-      { q: "Leadership ___ is the last challenge of leadership; of letting go, moving on, and planning for one's own obsolescence.", options: ["succession","regression","formation","integration"], answer: 0 },
-      { q: "___ leadership is also called missionary leadership and is different from quiet leadership.", options: ["participative","servant","radical","inspirational"], answer: 2 }
+      { q: "During Covid-19 the world was busy in preparing 1.5 billion learners for the new normal, i.e., ___ learning.", options: ["ineffective","physical","remote","experiential"], answer: 2, solution: "Please go through lecture notes of week-10 (slide no.02) for better understanding." },
+      { q: "To develop learner readiness for online learning, training sessions on ___ are helpful.", options: ["netiquettes","time management","developing study skills","all of the given"], answer: 3, solution: "Please go through lecture notes of week-10 (slide no.04) for better understanding." },
+      { q: "The typical picture of a teacher being a dispenser of knowledge to the students has been replaced by that of a ___.", options: ["obstructor","parent","friend","facilitator"], answer: 3, solution: "Please go through lecture notes of week-10 (slide no.06) for better understanding." },
+      { q: "In 2018, Global Education and Skills Forum noted that the ‘future’ teacher would need the 5 skills to thrive in the 21st century. Which of the following is not one of them?", options: ["Strong social skills","Data analysis","External focus","Strictness"], answer: 3, solution: "Please go through lecture notes of week-10 (slide no.06) for better understanding." },
+      { q: "Participatory education demands ___ so as to build a needs-based approach to teaching.", options: ["creativity","stubbornness","reward","none of the given"], answer: 0, solution: "Please go through lecture notes of week-10 (slide no.08) for better understanding." },
+      { q: "Students who consider intelligence as a malleable entity tend to focus on their obstacles instead of goals.", options: ["True","False"], answer: 1, solution: "Please go through lecture notes of week-10 (slide no.10) for better understanding." },
+      { q: "Which of the following is not a principle to enhance student learning.", options: ["What students already know affects their learning","Learning is context-based","Students’ cognitive development and learning is limited by the general stages of development.","The acquisition of knowledge and skills in the long term depends largely on practice."], answer: 2, solution: "Please go through lecture notes of week-10 (slide no.10-11) for better understanding." },
+      { q: "___ feedback to students is important for learning.", options: ["Unclear","Late","Harsh","Explanatory"], answer: 3, solution: "Please go through lecture notes of week-10 (slide no.14) for better understanding." },
+      { q: "Mastery goals are those that are geared towards the acquisition or improvement of___.", options: ["Skills","Number of students in a classroom","Teacher feedback","None of the given"], answer: 0, solution: "Please go through lecture notes of week-10 (slide no.15) for better understanding." },
+      { q: "The vast majority of formative assessment is___.", options: ["Formal","Incorrect","Written","informal"], answer: 3, solution: "Please go through lecture notes of week-10 (slide no.44) for better understanding." }
     ]
   },
   11: {
-    title: "Assignment 11",
-    topic: "Global Leadership & SDG 11",
+    title: "Week 11 Assignment",
+    topic: "Social Cognition & Bandura's Social-Cognitive Theory",
+    session: "July 2026",
     questions: [
-      { q: "There is one universal curriculum to become a sustainable leader.", options: ["True","False"], answer: 1 },
-      { q: "A sustainable leader has a ___ decision-making style.", options: ["forceful","autocratic","selfish","consensual"], answer: 3 },
-      { q: "A sustainable leader must have awareness of ___ contexts.", options: ["ecological","economic","political","all of the given"], answer: 3 },
-      { q: "The 'results' component of sustainable leadership relates with the ___ dimension.", options: ["institutional","social","environmental","economic"], answer: 3 },
-      { q: "___ India gives a theory U that consists of aspects like co-initiating, co-sensing and co-evolving among others.", options: ["HEAD","SAID","GEAD","LEAD"], answer: 3 },
-      { q: "The ___ component in theory 'U' entails prototyping the new.", options: ["co-evolving","co-initiating","co-sensing","co-creating"], answer: 3 },
-      { q: "Which of the following factor does not aid in becoming a global leader?", options: ["willingness to stay in one's comfort zone","undesirable circumstances like poverty","confidence to embrace risk","willingness to learn from failure"], answer: 0 },
-      { q: "According to Maxwell, there are ___ levels of leadership.", options: ["15","25","50","5"], answer: 3 },
-      { q: "The ___, in relation to their Global Leadership Fellowship program, describes global leaders as dynamic, engaged and driven individuals.", options: ["World Health Organization","World Labor Organization","World Economic Forum","World Political Forum"], answer: 2 },
-      { q: "SDG ___ is to make cities and human settlements inclusive, safe, resilient, and sustainable.", options: ["2","10","11","5"], answer: 2 }
-    ]
-  },
-  12: {
-    title: "Assignment 12",
-    topic: "Natural Resources & Sustainability",
-    questions: [
-      { q: "___ resources are those that exist in the absence of human intervention.", options: ["Artificial","Natural","Fake","Real"], answer: 1 },
-      { q: "The food sector accounts for around ___ percent of total greenhouse gas emissions.", options: ["3","22","100","90"], answer: 1 },
-      { q: "Which of the following is not a solution for natural resource depletion?", options: ["use less renewable energy","promote sustainable fishing growth","reduce food waste","treat wastewater before discharging"], answer: 0 },
-      { q: "In order to support reform on green fiscal policy, UN Environment has established the ___ in partnership with the International Monetary Fund.", options: ["Green Fiscal Policy Network","Blue Fiscal Policy Network","Green Fishery Policy Network","Green Fiscal Policy Natural"], answer: 0 },
-      { q: "As responsible consumers, we should ask ourselves \"___\" before buying anything.", options: ["do I really need it?","how long will I use it?","can I borrow it from someone I know?","all of the given"], answer: 3 },
-      { q: "A bulb thrown out after usage forms ___.", options: ["wet waste","valuable waste","responsible waste","e-waste"], answer: 3 },
-      { q: "SDG ___ seeks to promote international trade, and help developing countries increase their exports to ensure a universal rules-based and equitable trading system that is fair, open and beneficial to all.", options: ["17","2","6","11"], answer: 0 },
-      { q: "According to Gandhiji, wealth should be used for ___.", options: ["the betterment of the humanity","personal indulgence","conflicts","politics"], answer: 0 },
-      { q: "The ___ initiated and spearheaded by Gandhiji is the preeminent prototype of small and cottage industries.", options: ["Khadi Movement","Salt March","Cotton Movement","Non-violent Protest"], answer: 0 },
-      { q: "___ is the ability of a system to absorb disturbances & retain its basic function and structure.", options: ["resilience","gratitude","mindfulness","sustainable consumption"], answer: 0 }
+      { q: "Social cognition has a protracted development through infancy to ___.", options: ["teenage","old-age","adulthood","death"], answer: 2, solution: "Please go through lecture notes of week-11 (slide no.02) for better understanding." },
+      { q: "Which of the following abilities comes under social cognition?", options: ["Face processing","Joint attention","Theory of mind","All of the given"], answer: 3, solution: "Please go through lecture notes of week-11 (slide no.03) for better understanding." },
+      { q: "Under social cognition, abilities involved in affective processing are often called ___.", options: ["hot","cold","white","black"], answer: 0, solution: "Please go through lecture notes of week-11 (slide no.03) for better understanding." },
+      { q: "Social schemas refer to people's mental representations of social ___.", options: ["values","memories","skills","patterns"], answer: 3, solution: "Please go through lecture notes of week-11 (slide no.05) for better understanding." },
+      { q: "During the earliest stages of development, children are very ___-centric. They see the world from their own perspective and struggle to think about how other people may view the world.", options: ["selfish","ego","conscious","emotional"], answer: 1, solution: "Please go through lecture notes of week-11 (slide no.06) for better understanding." },
+      { q: "A theory of mind refers to a person's ability to understand and think about the ___ of other people.", options: ["behaviors","family backgrounds","mental states","language"], answer: 2, solution: "Please go through lecture notes of week-11 (slide no.08) for better understanding." },
+      { q: "The same social behavior in one cultural setting might have a very different meaning and interpretation if it were to occur or be observed in another culture.", options: ["True","False"], answer: 0, solution: "Please go through lecture notes of week-11 (slide no.09) for better understanding." },
+      { q: "Social cognitive theory by Bandura focuses on concepts of ___.", options: ["self-efficacy","modeling","observational learning","all of the given"], answer: 3, solution: "Please go through lecture notes of week-11 (slide no.11) for better understanding." },
+      { q: "The central tenet of Bandura’s social-cognitive theory is that people seek to develop a sense of ___ over the important events in their lives.", options: ["agency","dependency","attachment","emotion"], answer: 0, solution: "Please go through lecture notes of week-11 (slide no.13) for better understanding." },
+      { q: "___ hypothesis suggests that social processes influence how information is selected, organized, integrated, and retrieved.", options: ["activation","cognitive influence","interaction","social cue strength"], answer: 1, solution: "Please go through lecture notes of week-11 (slide no.30) for better understanding." }
     ]
   }
 };
@@ -591,16 +561,17 @@ let currentScore = 0;
 let currentTotal = 0;
 let currentMode = null;
 let currentQuestions = [];
-let markedQuestions = JSON.parse(localStorage.getItem('markedQuestions') || '[]');
+let markedQuestions = JSON.parse(localStorage.getItem('markedQuestions_psychology') || '[]');
 
 function buildGrid() {
   const grid = document.getElementById('assignment-grid');
-  for (let i = 1; i <= 12; i++) {
+  grid.innerHTML = '';
+  for (let i = 1; i <= 11; i++) {
     const a = ASSIGNMENTS[i];
     const div = document.createElement('div');
     div.className = 'asgn-card';
     div.innerHTML = `<span class="num">${String(i).padStart(2,'0')}</span>
-      <div class="label">${a.title}</div>
+      <div class="label">Week ${i}</div>
       <div class="q-count">${a.questions.length} questions</div>`;
     div.onclick = () => startAssignment(i);
     grid.appendChild(div);
@@ -610,35 +581,38 @@ function buildGrid() {
 function startAssignment(num) {
   const a = ASSIGNMENTS[num];
   currentMode = 'assignment';
-  currentQuestions = a.questions.map((q, i) => ({ ...q, assignmentNum: num, idx: i }));
+  currentQuestions = a.questions.map((q, i) => ({ ...q, assignmentNum: num, idx: i, assignmentTitle: a.title }));
   launchQuiz(a.title, a.topic, currentQuestions);
 }
 
-function startRandom() {
+function startRandom(count = 30) {
   currentMode = 'random';
-  let pool = [];
-  const perAssignment = {};
-  for (let i = 1; i <= 12; i++) perAssignment[i] = [];
+  const allWeeks = Object.keys(ASSIGNMENTS).map(Number);
+  const picked = [];
+  
+  // Pick at least 2 from each week
+  allWeeks.forEach(w => {
+    const qs = ASSIGNMENTS[w].questions.map((q, idx) => ({ ...q, assignmentNum: w, idx, assignmentTitle: ASSIGNMENTS[w].title }));
+    const shuffled = [...qs].sort(() => Math.random() - 0.5);
+    picked.push(...shuffled.slice(0, 2));
+  });
 
-  for (let i = 1; i <= 12; i++) {
-    const qs = ASSIGNMENTS[i].questions.map((q, idx) => ({ ...q, assignmentNum: i, idx }));
-    const shuffled = qs.sort(() => Math.random() - 0.5);
-    perAssignment[i] = shuffled.slice(0, 2);
-  }
-
-  pool = Object.values(perAssignment).flat();
   const remaining = [];
-  for (let i = 1; i <= 12; i++) {
-    const qs = ASSIGNMENTS[i].questions.map((q, idx) => ({ ...q, assignmentNum: i, idx }));
-    const used = perAssignment[i].map(q => q.idx);
-    remaining.push(...qs.filter(q => !used.includes(q.idx)));
-  }
-  remaining.sort(() => Math.random() - 0.5);
-  pool.push(...remaining.slice(0, 50 - pool.length));
-  pool.sort(() => Math.random() - 0.5);
+  allWeeks.forEach(w => {
+    ASSIGNMENTS[w].questions.forEach((q, idx) => {
+      const already = picked.some(p => p.assignmentNum === w && p.idx === idx);
+      if (!already) {
+        remaining.push({ ...q, assignmentNum: w, idx, assignmentTitle: ASSIGNMENTS[w].title });
+      }
+    });
+  });
 
-  currentQuestions = pool;
-  launchQuiz('Random Mixed Quiz', '50 questions from all 12 assignments', pool);
+  remaining.sort(() => Math.random() - 0.5);
+  const targetCount = Math.min(count, picked.length + remaining.length);
+  const finalPool = [...picked, ...remaining.slice(0, targetCount - picked.length)].sort(() => Math.random() - 0.5);
+
+  currentQuestions = finalPool;
+  launchQuiz(`Random Mixed Quiz (${finalPool.length}Q)`, 'Mixed questions balanced across Weeks 1 to 11', finalPool);
 }
 
 function launchQuiz(title, meta, questions) {
@@ -648,7 +622,6 @@ function launchQuiz(title, meta, questions) {
 
   document.getElementById('home-view').style.display = 'none';
   document.getElementById('quiz-view').style.display = 'block';
-  history.pushState({ page: 'quiz' }, '');
   document.getElementById('quiz-title').textContent = title;
   document.getElementById('quiz-meta').textContent = meta;
   document.getElementById('score-pill').textContent = `0 / ${currentTotal}`;
@@ -665,7 +638,7 @@ function launchQuiz(title, meta, questions) {
     card.id = `qcard-${qi}`;
 
     const label = currentMode === 'random'
-      ? `Q${qi+1} &nbsp;·&nbsp; Assignment ${q.assignmentNum}`
+      ? `Q${qi+1} · Week ${q.assignmentNum}`
       : `Q${qi+1}`;
 
     let opts = '';
@@ -682,7 +655,7 @@ function launchQuiz(title, meta, questions) {
       <div class="question-header">
         <span class="q-num">${label}</span>
         <button class="mark-important-btn ${isMarked ? 'marked' : ''}" onclick="toggleMarkQuestion(${q.assignmentNum}, ${q.idx}, ${qi})">
-          <i class="fas fa-star"></i> ${isMarked ? 'Marked' : 'Mark Important'}
+          ★ ${isMarked ? 'Marked' : 'Mark'}
         </button>
       </div>
       <div class="q-text">${q.q}</div>
@@ -691,6 +664,7 @@ function launchQuiz(title, meta, questions) {
     `;
     container.appendChild(card);
   });
+  window.scrollTo(0, 0);
 }
 
 function selectOption(qi, oi) {
@@ -712,10 +686,10 @@ function selectOption(qi, oi) {
   fb.classList.add('show');
   if (isCorrect) {
     fb.className = 'feedback show correct-fb';
-    fb.innerHTML = '&#10003; Correct!';
+    fb.innerHTML = `&#10003; Correct! Ans: ${LETTERS[q.answer]} = ${q.options[q.answer]}<span class="solution-note">💡 ${q.solution}</span>`;
   } else {
     fb.className = 'feedback show wrong-fb';
-    fb.innerHTML = `&#10007; Incorrect. <span class="correct-ans">Correct answer: ${LETTERS[q.answer]}. ${q.options[q.answer]}</span>`;
+    fb.innerHTML = `&#10007; Incorrect. Correct answer: ${LETTERS[q.answer]} = ${q.options[q.answer]}<span class="solution-note">💡 ${q.solution}</span>`;
   }
 
   const answered = Object.keys(currentAnswers).length;
@@ -752,7 +726,7 @@ function showResults() {
 
 function retryQuiz() {
   if (currentMode === 'random') {
-    startRandom();
+    startRandom(currentTotal);
   } else {
     const num = currentQuestions[0]?.assignmentNum;
     if (num) startAssignment(num);
@@ -764,22 +738,18 @@ function goHome() {
   document.getElementById('quiz-view').style.display = 'none';
   document.getElementById('answers-view').style.display = 'none';
   document.getElementById('marked-view').style.display = 'none';
-  history.pushState({ page: 'home' }, '');
-}
-
-function showQuizView() {
-  document.getElementById('home-view').style.display = 'none';
-  document.getElementById('quiz-view').style.display = 'block';
+  window.scrollTo(0, 0);
 }
 
 function buildAnswerGrid() {
   const grid = document.getElementById('ak-grid');
-  for (let i = 1; i <= 12; i++) {
+  grid.innerHTML = '';
+  for (let i = 1; i <= 11; i++) {
     const a = ASSIGNMENTS[i];
     const div = document.createElement('div');
     div.className = 'ak-card';
     div.innerHTML = `<span class="num">${String(i).padStart(2,'0')}</span>
-      <div class="label">${a.title}</div>
+      <div class="label">Week ${i}</div>
       <div class="q-count">${a.questions.length} answers</div>`;
     div.onclick = () => openAnswerKey(i);
     grid.appendChild(div);
@@ -790,10 +760,9 @@ function openAnswerKey(num) {
   const a = ASSIGNMENTS[num];
   document.getElementById('home-view').style.display = 'none';
   document.getElementById('answers-view').style.display = 'block';
-  history.pushState({ page: 'answers' }, '');
 
-  document.getElementById('ak-title').textContent = a.title + ' — Answer Key';
-  document.getElementById('ak-subtitle').textContent = a.topic + ' · ' + a.questions.length + ' questions';
+  document.getElementById('ak-title').textContent = `${a.title} — Verified Answer Key`;
+  document.getElementById('ak-subtitle').textContent = `${a.topic} · ${a.questions.length} questions`;
 
   const container = document.getElementById('ak-questions-container');
   container.innerHTML = '';
@@ -812,37 +781,18 @@ function openAnswerKey(num) {
     });
     div.innerHTML = `<span class="ak-q-num">Q${qi+1}</span>
       <div class="ak-q-text">${q.q}</div>
-      <div class="ak-options">${opts}</div>`;
+      <div class="ak-options">${opts}</div>
+      <div class="ak-solution">💡 ${q.solution}</div>`;
     container.appendChild(div);
   });
   window.scrollTo(0, 0);
 }
 
-// Extend popstate to handle answers-view
-window.removeEventListener('popstate', window._popHandler);
-window._popHandler = function(e) {
-  const quizVisible = document.getElementById('quiz-view').style.display !== 'none';
-  const answersVisible = document.getElementById('answers-view').style.display !== 'none';
-  const markedVisible = document.getElementById('marked-view').style.display !== 'none';
-  if (quizVisible || answersVisible || markedVisible) {
-    document.getElementById('home-view').style.display = 'block';
-    document.getElementById('quiz-view').style.display = 'none';
-    document.getElementById('answers-view').style.display = 'none';
-    document.getElementById('marked-view').style.display = 'none';
-    history.pushState({ page: 'home' }, '');
-  }
-};
-window.addEventListener('popstate', window._popHandler);
-
 function toggleMarkQuestion(assignmentNum, idx, qi) {
-  const questionKey = `${assignmentNum}-${idx}`;
   const existingIndex = markedQuestions.findIndex(mq => mq.assignmentNum === assignmentNum && mq.idx === idx);
-
   if (existingIndex >= 0) {
-    // Remove from marked questions
     markedQuestions.splice(existingIndex, 1);
   } else {
-    // Add to marked questions
     const question = ASSIGNMENTS[assignmentNum].questions[idx];
     markedQuestions.push({
       assignmentNum,
@@ -850,60 +800,52 @@ function toggleMarkQuestion(assignmentNum, idx, qi) {
       question: question.q,
       options: question.options,
       answer: question.answer,
+      solution: question.solution,
       assignmentTitle: ASSIGNMENTS[assignmentNum].title
     });
   }
+  localStorage.setItem('markedQuestions_psychology', JSON.stringify(markedQuestions));
 
-  // Save to localStorage
-  localStorage.setItem('markedQuestions', JSON.stringify(markedQuestions));
-
-  // Update button state
   const btn = document.querySelector(`#qcard-${qi} .mark-important-btn`);
-  const isMarked = markedQuestions.some(mq => mq.assignmentNum === assignmentNum && mq.idx === idx);
-  btn.classList.toggle('marked', isMarked);
-  btn.innerHTML = `<i class="fas fa-star"></i> ${isMarked ? 'Marked' : 'Mark Important'}`;
-
-  // Update homepage display
+  if (btn) {
+    const isMarked = markedQuestions.some(mq => mq.assignmentNum === assignmentNum && mq.idx === idx);
+    btn.classList.toggle('marked', isMarked);
+    btn.innerHTML = `★ ${isMarked ? 'Marked' : 'Mark'}`;
+  }
   updateMarkedQuestionsDisplay();
 }
 
 function updateMarkedQuestionsDisplay() {
   const container = document.getElementById('marked-questions-container');
-
   if (markedQuestions.length === 0) {
     container.innerHTML = `
-      <div style="background:rgba(251,191,36,0.06); border:1px solid rgba(251,191,36,0.18); border-radius:12px; padding:20px 16px; text-align:center; font-size:13px; color:#fcd34d; line-height:1.6;">
-        No questions marked as important yet. Mark questions during practice to see them here.
+      <div style="background:rgba(251,191,36,0.06); border:1px solid rgba(251,191,36,0.2); border-radius:12px; padding:16px; text-align:center; font-size:13px; color:#fcd34d;">
+        No questions marked as important yet. Star questions during practice to review them here.
       </div>
     `;
     return;
   }
 
   let html = '';
-  markedQuestions.forEach((mq, i) => {
+  markedQuestions.forEach((mq) => {
     html += `
-      <div class="asgn-card" style="text-align:left; display:flex; align-items:center; gap:16px; max-width:100%; margin-bottom:8px;" onclick="viewMarkedQuestions()">
-        <div>
-          <span style="font-family:'Space Mono',monospace; font-size:18px; font-weight:700; color:var(--gold);">${mq.assignmentNum}</span>
-        </div>
+      <div class="asgn-card" style="text-align:left; display:flex; align-items:center; gap:14px; margin-bottom:8px;" onclick="viewMarkedQuestions()">
+        <div><span style="font-family:'Space Mono',monospace; font-size:18px; font-weight:700; color:var(--gold);">W${mq.assignmentNum}</span></div>
         <div style="flex:1;">
-          <div style="font-size:14px; font-weight:600; color:var(--text); margin-bottom:2px;">${mq.assignmentTitle}</div>
-          <div style="font-size:12px; color:var(--muted);">Question ${mq.idx + 1} marked for review</div>
+          <div style="font-size:13px; font-weight:600; color:var(--text);">${mq.assignmentTitle} · Q${mq.idx + 1}</div>
+          <div style="font-size:11px; color:var(--muted);">${mq.question.slice(0, 75)}...</div>
         </div>
-        <div style="font-size:11px; color:var(--gold); font-family:'Space Mono',monospace; font-weight:700;">MARKED</div>
+        <div style="font-size:11px; color:var(--gold); font-family:'Space Mono',monospace;">★ STARRED</div>
       </div>
     `;
   });
-
   container.innerHTML = html;
 }
 
 function viewMarkedQuestions() {
   document.getElementById('home-view').style.display = 'none';
   document.getElementById('marked-view').style.display = 'block';
-  history.pushState({ page: 'marked' }, '');
-
-  document.getElementById('marked-subtitle').textContent = `${markedQuestions.length} question${markedQuestions.length !== 1 ? 's' : ''} marked for review`;
+  document.getElementById('marked-subtitle').textContent = `${markedQuestions.length} question(s) marked for review`;
 
   const container = document.getElementById('marked-questions-list');
   container.innerHTML = '';
@@ -921,14 +863,13 @@ function viewMarkedQuestions() {
       </div>`;
     });
     div.innerHTML = `
-      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
-        <span class="ak-q-num">Assignment ${mq.assignmentNum} · Q${mq.idx + 1}</span>
-        <button class="mark-important-btn marked" onclick="removeMarkedQuestion(${mi})" style="font-size:10px; padding:4px 8px;">
-          <i class="fas fa-times"></i> Remove
-        </button>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+        <span class="ak-q-num">Week ${mq.assignmentNum} · Q${mq.idx + 1}</span>
+        <button class="mark-important-btn marked" onclick="removeMarkedQuestion(${mi})">Remove</button>
       </div>
       <div class="ak-q-text">${mq.question}</div>
       <div class="ak-options">${opts}</div>
+      <div class="ak-solution">💡 ${mq.solution}</div>
     `;
     container.appendChild(div);
   });
@@ -937,19 +878,17 @@ function viewMarkedQuestions() {
 
 function removeMarkedQuestion(index) {
   markedQuestions.splice(index, 1);
-  localStorage.setItem('markedQuestions', JSON.stringify(markedQuestions));
+  localStorage.setItem('markedQuestions_psychology', JSON.stringify(markedQuestions));
   updateMarkedQuestionsDisplay();
-
-  // If we're in the marked view, refresh it
   if (document.getElementById('marked-view').style.display !== 'none') {
-    viewMarkedQuestions();
+    if (markedQuestions.length === 0) goHome();
+    else viewMarkedQuestions();
   }
 }
 
 buildGrid();
 buildAnswerGrid();
 updateMarkedQuestionsDisplay();
-history.pushState({ page: 'home' }, '');
 </script>
 </body>
 </html>
